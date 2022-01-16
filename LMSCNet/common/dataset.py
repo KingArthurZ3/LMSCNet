@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
 
 from LMSCNet.data.SemanticKITTI import SemanticKITTI_dataloader
-
+from LMSCNet.data.CarlaDataset import CarlaDataset_dataloader
 
 def get_dataset(_cfg):
 
@@ -9,6 +9,10 @@ def get_dataset(_cfg):
     ds_train = SemanticKITTI_dataloader(_cfg._dict['DATASET'], 'train')
     ds_val   = SemanticKITTI_dataloader(_cfg._dict['DATASET'], 'val')
     ds_test  = SemanticKITTI_dataloader(_cfg._dict['DATASET'], 'test')
+  elif _cfg._dict['DATASET']['TYPE'] == 'CarlaDataset':
+    ds_train = CarlaDataset_dataloader(_cfg._dict['DATASET'], 'train')
+    ds_val   = CarlaDataset_dataloader(_cfg._dict['DATASET'], 'val')
+    ds_test  = CarlaDataset_dataloader(_cfg._dict['DATASET'], 'test')
 
   _cfg._dict['DATASET']['SPLIT'] = {'TRAIN': len(ds_train), 'VAL': len(ds_val), 'TEST': len(ds_test)}
 

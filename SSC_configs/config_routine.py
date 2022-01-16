@@ -11,7 +11,7 @@ from LMSCNet.common.io_tools import _create_directory
 
 config_dict = {}
 
-output_root = ''
+output_root = './SSC_configs'
 output_folder = 'routines'
 output_filename = 'LMSCNet.yaml'
 out_path = os.path.join(output_root, output_folder, output_filename)
@@ -23,13 +23,13 @@ config_dict['DATALOADER']['NUM_WORKERS'] = 4
 
 # -------------------------------------------------------------
 config_dict['DATASET'] = {}
-config_dict['DATASET']['TYPE'] = 'SemanticKITTI'  # SemanticKITTI, other datasets might be added...
+config_dict['DATASET']['TYPE'] = 'CarlaDataset'  # SemanticKITTI, other datasets might be added...
 config_dict['DATASET']['MODALITIES'] = {}
 # More modalities might be added
 config_dict['DATASET']['MODALITIES']['3D_LABEL'] = True
 config_dict['DATASET']['MODALITIES']['3D_OCCUPANCY'] = True
 config_dict['DATASET']['MODALITIES']['3D_OCCLUDED'] = True
-config_dict['DATASET']['ROOT_DIR'] = '/datasets_local/datasets_lroldaoj/semantic_kitti_v1.0/'
+config_dict['DATASET']['ROOT_DIR'] = '~/Documents/Train/Town01_Heavy'
 config_dict['DATASET']['AUGMENTATION'] = {}
 config_dict['DATASET']['AUGMENTATION']['FLIPS'] = True  # More data augmentation can be added in dataloader
 # -------------------------------------------------------------

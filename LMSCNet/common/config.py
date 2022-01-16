@@ -21,7 +21,6 @@ class CFG:
     Class constructor
     :param config_path:
     '''
-
     # Reading config file
     self._dict = yaml.load(open(config_path, 'r'), Loader=yaml.FullLoader)
 
